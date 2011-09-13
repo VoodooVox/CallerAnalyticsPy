@@ -3,9 +3,17 @@ import json
 import urllib
 import urllib2
 
+__all__ = ["event", "lookup"]
+
 CA_API_HOST="http://ca-api.voodoovox.com/"
 
-def ca_api_call(key, className, methodName, data={}):
+_API_KEY = None
+
+def ca_api_init(key):
+   global _API_KEY
+   _API_KEY = key
+
+def ca_api_call(className, methodName, data={}, key=None):
    """Call the Caller Analytics API
    
    Arguments:
@@ -19,6 +27,9 @@ def ca_api_call(key, className, methodName, data={}):
    """
    
    url = "%s%s.%s.do" % ( CA_API_HOST, className, methodName )
+   
+   if key == None:
+      key = _API_KEY
    
    params = { 'json' : json.dumps(data), 'key' : key }
    

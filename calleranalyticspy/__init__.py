@@ -5,7 +5,7 @@ import urllib2
 
 __all__ = ["event", "lookup"]
 
-CA_API_HOST="http://ca-api.voodoovox.com/"
+CA_API_HOST="http://api.calleranalytics.com/"
 
 _API_KEY = None
 
@@ -70,6 +70,8 @@ class CaApiException(Exception):
          details = response["details"]
          if details["errorKey"] == "IN_USE":
             self.userMessage = details["parameter"] + " is already in use"
+         elif details["errorKey"] == "NOT_VALID":
+            self.userMessage = details["parameter"] + " is not valid"
          else:
             self.userMessage = details["message"] + " [" + details["parameter"] + "]"
       elif self.errorKey == "REQUIRED_PARAMETER_MISSING":

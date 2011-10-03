@@ -5,8 +5,7 @@ import urllib2
 
 __all__ = ["event", "lookup", "caller"]
 
-#CA_API_HOST="http://api.calleranalytics.com/"
-CA_API_HOST="http://ca-joe:8080/"
+CA_API_HOST="http://api.calleranalytics.com/"
 
 _API_KEY = None
 

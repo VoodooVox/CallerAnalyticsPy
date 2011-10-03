@@ -10,6 +10,10 @@ CA_API_HOST="http://api.calleranalytics.com/"
 _API_KEY = None
 
 def ca_api_init(key):
+   """Initialize the Caller Analytics API
+   
+   key: Your API key
+   """
    global _API_KEY
    _API_KEY = key
 

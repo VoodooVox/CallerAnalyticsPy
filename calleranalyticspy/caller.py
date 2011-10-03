@@ -27,6 +27,11 @@ class CallerUpdate(CaApiClass):
       CaApiClass.__init__(self, 'Caller', phoneNumber=phoneNumber)
    
    def add_data(self, key, value):
+      """Add data to the caller update
+      
+         key: The key/name of the attribute to add to the caller
+         value: the value of the attribute to add to the caller
+      """
       if self.caller:
          self.caller[key] = value
       else:

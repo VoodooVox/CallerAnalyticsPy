@@ -3,7 +3,7 @@
 import sys
 
 import calleranalyticspy as ca
-import calleranalyticspy.lookup as calookup
+import calleranalyticspy.caller as cacaller
 
 if len(sys.argv) != 3:
 	print "usage: %s API_KEY PHONE_NUMBER" % ( sys.argv[0] )
@@ -18,9 +18,9 @@ print "==========================="
 print " Looking up %s" % ( phoneNumber )
 print "==========================="
 
-lookup = calookup.lookup( phoneNumber )
+caller = cacaller.read( phoneNumber )
 
-for (k,v) in lookup.iterdata():
+for (k,v) in caller.iterdata():
 	if k == "members":
 		print "members : "
 		i = 1

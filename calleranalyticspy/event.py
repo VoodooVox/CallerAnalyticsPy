@@ -22,7 +22,10 @@ def read_events(dataBucket, eventType, start, end, pageSize=None, lastEvent=None
 
 class EventResponse(object):
    def __init__(self, response):
-      self.lastEvent = response["lastEvent"]
+      if "lastEvent" in response:
+         self.lastEvent = response["lastEvent"]
+      else:
+         self.lastEvent = None
       
       self.events = []
       for event in response["events"]:
